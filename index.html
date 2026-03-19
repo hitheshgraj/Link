@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      position: relative;
+      max-width: 350px;
+    }
+
+    h1 {
+      color: #ff4b5c;
+    }
+
+    p {
+      color: #555;
+      font-size: 18px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      background: #ff4b5c;
+      color: white;
+    }
+
+    button:hover {
+      background: #ff1e3c;
+    }
+
+    #hateBtn {
+      position: fixed;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 20px;
+      display: none;
+      color: #ff4b5c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Hey Baba ❤️</h1>
+    <p> Even though you said i hate you i Love you so Much choose what you wanna say !😌</p>
+
+    <button onclick="showLove()">I Love You 💖</button>
+    <button id="hateBtn">I Hate You 😈</button>
+
+    <div id="message">I knew it 😭💖 I love you sooo much Love 🥰</div>
+  </div>
+
+  <script>
+    const hateBtn = document.getElementById("hateBtn");
+    let stopped = false;
+
+    function moveButton() {
+      if (stopped) return;
+
+      const x = Math.random() * (window.innerWidth - hateBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - hateBtn.offsetHeight);
+
+      hateBtn.style.left = x + "px";
+      hateBtn.style.top = y + "px";
+    }
+
+    // Move ONLY when mouse comes over it
+    hateBtn.addEventListener("mouseover", moveButton);
+    hateBtn.addEventListener("touchstart", moveButton);
+
+    function showLove() {
+      document.getElementById("message").style.display = "block";
+      stopped = true; // stop movement permanently
+    }
+  </script>
+
+</body>
+</html>
